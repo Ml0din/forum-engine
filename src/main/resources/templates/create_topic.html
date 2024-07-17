@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta name="_csrf" data-th-content="${_csrf.token}"/>
+        <meta name="_csrf_header" data-th-content="${_csrf.headerName}"/>
+
+        <title>Forum | Create Topic</title>
+
+        <link rel="stylesheet" th:href="@{../css/create_topic.css}">
+        <link rel="stylesheet" th:href="@{../css/form.css}">
+        <link rel="stylesheet" th:href="@{../css/fonts.css}">
+
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/notification.js"></script>
+        <script src="../js/goto.js"></script>
+        <script src="../js/logout.js"></script>
+        <script src="http://localhost:35729/livereload.js"></script>
+
+
+    <body>
+        <span class = "main-title">CREATE A NEW TOPIC!</span>
+        <div class = "form">
+            <form th:action="@{/create_topic/} + ${subcategory}" method="post" style="align-items: flex-start !important; width: auto !important;">
+                <div class="form-component">
+                    <label for="title"><img src="/images/group/display.svg" width="30px" height="30px" draggable="false"> Title</label>
+                    <input id="title" name="title" required>
+                </div>
+
+                <div class="form-component">
+                    <label for="content"><img src="/images/info.svg" width="30px" height="30px" draggable="false"> Content</label>
+                    <textarea id="content" name="content" style="width: 1200px; height: 300px; font-size: 20px; resize: none" aria-required="true"></textarea>
+                </div>
+
+                <div class="form-component">
+                    <button type="submit">CREATE</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

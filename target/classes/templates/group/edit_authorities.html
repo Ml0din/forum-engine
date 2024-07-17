@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="_csrf" data-th-content="${_csrf.token}"/>
+    <meta name="_csrf_header" data-th-content="${_csrf.headerName}"/>
+
+    <link rel="stylesheet" th:href="@{../css/fonts.css}"></link>
+    <link rel="stylesheet" th:href="@{../css/form.css}"></link>
+    <link rel="stylesheet" th:href="@{../css/notification.css}"></link>
+    <link rel="stylesheet" th:href="@{../css/select.css}"></link>
+    <link rel="stylesheet" th:href="@{../css/modal.css}"></link>
+
+    <link rel="stylesheet" th:href="@{../css/admin/admin.css}">
+    <link rel="stylesheet" th:href="@{../css/admin/action_panel.css}">
+    <link rel="stylesheet" th:href="@{../css/admin/options_panel.css}">
+
+    <link rel="stylesheet" th:href="@{../css/group/edit_authorities.css}">
+
+    <title>Forum | Edit Permissions</title>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/notification.js"></script>
+    <script src="/js/select.js"></script>
+    <script src="/js/goto.js"></script>
+    <script src="/js/modal.js"></script>
+    <script src="/js/group.js"></script>
+    <script src="/js/payload.js"></script>
+
+    <script src="http://localhost:35729/livereload.js"></script>
+</head>
+<body>
+    <div class="notification-panel">
+    </div>
+
+    <div th:unless="${modifiable==null}" class="modal-panel">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>ADD AUTHORITY</span>
+            </div>
+            <div class="modal">
+                <div class="form-component">
+                    <form>
+                        <label for="authority"><img src="/images/group/authority.svg" width="30px" height="30px"> Authority</label>
+                        <input type="text" id="authority" name="authority" required>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="submit" th:attr="onclick=|addAuthority('${modifiable.name}')|">CONFIRM</button>
+                <button class="submit" onclick="toggleModal()">CLOSE</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="options-panel">
+        <div class="options-header-panel">
+            <div class="user-panel">
+                <div class="user-info-panel">
+                    <div class="user-icon" th:attr="style=|background: url('${user.avatar() == 'none' ? 'https://i.imgur.com/ry7NlRO.png' : user.avatar()}') no-repeat left; background-position: center; background-size: cover;|"></div>
+                    <div class="user-info">
+                        <span class="username" th:text="${user.username()}"></span>
+                        <span class="group" th:text="${user.group().display}"></span>
+                    </div>
+                </div>
+
+                <div class="logout">
+                    <button onclick="logout()"><img src="/images/door.svg" width="30px" height="30px" draggable="false"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="options-content-panel">
+            <div class="options-category">
+                <span>Groups</span>
+                <div class="options-subcategory">
+                    <button onclick="goto('/create_group')">Create Group</button>
+                    <button onclick="goto('/edit_authorities')">Edit Authorities</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="options-footer-panel">
+            <span>Mladin Alexandru-Mihai</span>
+        </div>
+    </div>
+
+    <div class="action-panel">
+        <div class="action-content-panel">
+            <div class="action-content-header">
+                <img src="/images/group/create.svg" width="40px" height="40px" draggable="false">
+                <span>EDIT AUTHORITIES</span>
+            </div>
+
+            <div class="action-content" style="height: 600px !important;">
+                <div th:if="${modifiable == null}" class="select">
+                    <div class="select-header" onclick="toggleSelect()">
+                        <span>Select Group</span>
+                        <img src="/images/select.svg" width="20px" height="20px" draggable="false">
+                    </div>
+
+                    <div class="select-menu">
+                        <div th:each="group: ${groups}" th:id="${group.name}" class="select-option" th:attr="onclick=|goto('/edit_authorities/${group.name}')|">
+                            <span th:text="${group.display}"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="authorities-panel" th:unless="${modifiable == null}">
+                    <span class="title">Group:<span th:text="${modifiable.display}"></span></span>
+                    <div class="authorities">
+                        <span th:if="${modifiable.getGrantedAuthorities().size() == 0}">No authorities found.</span>
+
+                        <div class="authority" th:each="authority: ${modifiable.getGrantedAuthorities()}" th:id="${authority.getAuthority()}">
+                            <div class="authority-label">
+                                <span th:text="${authority.getAuthority()}"></span>
+                            </div>
+                            <div class="authority-delete">
+                                <button th:attr="onclick=|deleteAuthority('${modifiable.getName()}', '${authority.getAuthority()}')|"><img src="/images/group/delete.svg" width="20px" height="20px" draggable="false"></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="submit" onclick="toggleModal()">ADD AUTHORITY</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+
+        var notificationStatus = /*[[${notification}]]*/ false
+        var notificationMessage = /*[[${notificationMessage}]]*/ ""
+
+        if(notificationStatus) {
+            notify(notificationMessage, notification_type.ERROR);
+        }
+
+        /*]]>*/
+    </script>
+</body>
+</html>

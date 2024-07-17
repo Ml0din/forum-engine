@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'Panton BlackCaps';
+    src: url("../fonts/panton/Panton-BlackCaps.otf") format("opentype");
+}
+
+@font-face {
+    font-family: 'Panton BlackCaps Italic';
+    src: url("../fonts/panton/Panton-BlackItalicCaps.otf") format("opentype");
+}
+
+@font-face {
+    font-family: 'Panton LightCaps';
+    src: url("../fonts/panton/Panton-LightCaps.otf") format("opentype");
+}
+
+@font-face {
+    font-family: 'Panton LightCaps Italic';
+    src: url("../fonts/panton/Panton-LightItalicCaps.otf") format("opentype");
+}
+
+@font-face {
+    font-family: 'Poppins Black';
+    src: url("../fonts/poppins/Poppins-Black.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Poppins Black Italic';
+    src: url("../fonts/poppins/Poppins-BlackItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Poppins Bold';
+    src: url("../fonts/poppins/Poppins-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Poppins Bold Italic';
+    src: url("../fonts/poppins/Poppins-BoldItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Poppins ExtraLight';
+    src: url("../fonts/poppins/Poppins-ExtraLight.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Poppins ExtraLight Italic';
+    src: url("../fonts/poppins/Poppins-ExtraLightItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Poppins Light';
+    src: url("../fonts/poppins/Poppins-Light.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Poppins Light Italic';
+    src: url("../fonts/poppins/Poppins-LightItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Poppins Medium';
+    src: url("../fonts/poppins/Poppins-Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Poppins Medium Italic';
+    src: url("../fonts/poppins/Poppins-MediumItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Poppins Thin';
+    src: url("../fonts/poppins/Poppins-Thin.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Poppins Thin Italic';
+    src: url("../fonts/poppins/Poppins-ThinItalic.ttf") format("truetype");
+}

@@ -1,0 +1,111 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    width: 100%;
+    height: 100vh;
+
+    min-width: 600px;
+    min-height: 800px;
+}
+
+body {
+    background-color: #1e2124;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.sign-in-title-panel {
+    user-select: none;
+    margin-bottom: 50px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.sign-in-title {
+    font-family: 'Poppins Medium';
+    font-size: 40px;
+    color: whitesmoke;
+}
+
+.sign-in-panel {
+    width: 500px;
+    height: 600px;
+    min-height: 600px;
+
+    border-radius: 10px;
+
+    background-color: #282b30;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 10px 10px 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.oauth2 {
+    display: flex;
+
+    flex-direction: column;
+    row-gap: 20px;
+
+    justify-content: center;
+    align-items: center;
+
+    user-select: none;
+
+    font-family: "Poppins Light";
+    font-size: 20px;
+
+    color: whitesmoke;
+}
+
+.oauth2 button {
+    width: 200px;
+    height: 40px;
+
+    background-color: transparent;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    column-gap: 20px;
+
+    font-family: 'Panton BlackCaps';
+    font-size: 17px;
+    color: whitesmoke;
+
+    border-radius: 5px;
+
+    border: none;
+    box-shadow: none;
+
+    outline: whitesmoke solid 2px;
+    outline-offset: 2px;
+
+    margin-top: 20px;
+
+    transition: 0.5s;
+}
+
+.oauth2 button:hover {
+    background-color: whitesmoke !important;
+    color: black !important;
+
+    transition: 0.5s;
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" th:href="@{./css/fonts.css}"></link>
+    <link rel="stylesheet" th:href="@{./css/form.css}"></link>
+    <link rel="stylesheet" th:href="@{./css/notification.css}"></link>
+
+    <link rel="stylesheet" th:href="@{./css/admin/admin.css}">
+    <link rel="stylesheet" th:href="@{./css/admin/action_panel.css}">
+    <link rel="stylesheet" th:href="@{./css/admin/options_panel.css}">
+
+    <title>Forum | Create Role</title>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/notification.js"></script>
+    <script src="/js/goto.js"></script>
+    <script src="http://localhost:35729/livereload.js"></script>
+</head>
+<body>
+    <div class="notification-panel">
+    </div>
+
+    <div class="options-panel">
+        <div class="options-header-panel">
+            <div class="user-panel">
+                <div class="user-info-panel">
+                    <div class="user-icon" th:attr="style=|background: url('${user.avatar() == 'none' ? 'https://i.imgur.com/ry7NlRO.png' : user.avatar()}') no-repeat left; background-position: center; background-size: cover;|"></div>
+                    <div class="user-info">
+                        <span class="username" th:text="${user.username()}"></span>
+                        <span class="group" th:text="${user.group().display}"></span>
+                    </div>
+                </div>
+
+                <div class="logout">
+                    <button onclick="logout()"><img src="/images/door.svg" width="30px" height="30px" draggable="false"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="options-content-panel">
+            <div class="options-category">
+                <span>Groups</span>
+                <div class="options-subcategory">
+                    <button onclick="goto('/create_group')">Create Group</button>
+                    <button onclick="goto('/edit_authorities')">Edit Authorities</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="options-footer-panel">
+            <span>Mladin Alexandru-Mihai</span>
+        </div>
+    </div>
+
+    <div class="action-panel">
+        <div class="action-content-panel">
+            <div class="action-content-header">
+                <img src="/images/group/create.svg" width="40px" height="40px" draggable="false">
+                <span>CREATE GROUP</span>
+            </div>
+
+            <div class="action-content" style="height: 600px !important;">
+                <form th:action="@{/create_group}" th:object="${create_group_data}" method="post">
+                    <div class="form-component">
+                        <label for="name"><img src="/images/group/tag.svg" width="30px" height="30px" draggable="false"> Name</label>
+                        <input id="name" name="name" field="*name" required>
+                    </div>
+
+                    <div class="form-component">
+                        <label for="priority"><img src="/images/shield.svg" width="30px" height="30px" draggable="false"> Priority</label>
+                        <input id="priority" name="priority" field="*priority" required>
+                    </div>
+
+                    <div class="form-component">
+                        <label for="display"><img src="/images/group/display.svg" width="30px" height="30px" draggable="false"> Display</label>
+                        <input id="display" name="display" field="*display" required>
+                    </div>
+
+                    <div class="form-component">
+                        <button type="submit">CREATE</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+
+        var notificationStatus = /*[[${notification}]]*/ false
+        var notificationMessage = /*[[${notificationMessage}]]*/ ""
+
+        if(notificationStatus) {
+            notify(notificationMessage, notification_type.ERROR);
+        }
+
+        /*]]>*/
+    </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    row-gap: 50px;
+}
+
+.form-component {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: left;
+    align-items: start;
+
+    row-gap: 10px;
+}
+
+.form-component label {
+    font-family: 'Poppins Light';
+    font-size: 23px;
+    color: whitesmoke;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    column-gap: 20px;
+
+    user-select: none;
+}
+
+.form-component input {
+    border: none;
+    outline: none;
+
+    width: 300px;
+    height: 30px;
+
+    text-align: left;
+
+    font-family: "Poppins Medium";
+    font-size: 15px;
+    color: black;
+
+    padding-left: 10px;
+    padding-right: 10px;
+
+    border-radius: 5px;
+}
+
+.form-component input::selection {
+    color: whitesmoke;
+    background-color: #424549;
+}
+
+.form-component button {
+    width: 200px;
+    height: 40px;
+
+    background-color: #7289da;
+
+    font-family: 'Panton BlackCaps';
+    font-size: 17px;
+    color: whitesmoke;
+
+    border-radius: 5px;
+
+    border: none;
+    box-shadow: none;
+
+    margin-top: 20px;
+
+    transition: 0.5s;
+}
+
+.form-component button:hover {
+    background-color: whitesmoke !important;
+    color: black !important;
+
+    transition: 0.5s;
+}
+
+.submit {
+    width: 200px;
+    height: 40px;
+
+    background-color: #7289da;
+
+    font-family: 'Panton BlackCaps';
+    font-size: 17px;
+    color: whitesmoke;
+
+    border-radius: 5px;
+
+    border: none;
+    box-shadow: none;
+
+    margin-top: 20px;
+
+    transition: 0.5s;
+}
+
+.submit:hover {
+    background-color: whitesmoke !important;
+    color: black !important;
+
+    transition: 0.5s;
+}

@@ -1,0 +1,87 @@
+.authorities-panel {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    row-gap: 20px;
+
+    color: whitesmoke;
+}
+
+.authorities {
+    width: 70%;
+    height: 300px;
+
+    display: flex;
+    flex-direction: column;
+
+    row-gap: 20px;
+
+    align-items: center;
+
+    background-color: #1e2124;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 10px 10px 20px;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.authority {
+    width: 50%;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.authority-label {
+    flex: 1;
+}
+
+.authority-label span {
+    font-family: 'Poppins Light';
+    font-size: 30px;
+
+    colOR: whitesmoke;
+}
+
+.authority-delete {
+    margin-left: auto;
+}
+
+.authority-delete button {
+    width: 40px;
+    height: 40px;
+
+    background-color: #7289da;
+
+    font-family: 'Panton BlackCaps';
+    font-size: 17px;
+    color: whitesmoke;
+
+    border-radius: 5px;
+
+    border: none;
+    box-shadow: none;
+
+    margin-top: 20px;
+
+    transition: 0.5s;
+}
+
+.authority-delete button:hover {
+    background-color: whitesmoke;
+    color: black;
+
+    transition: 0.5s;
+}

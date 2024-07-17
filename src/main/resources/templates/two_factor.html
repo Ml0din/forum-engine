@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Forum | Two Factor</title>
+
+    <link rel="stylesheet" th:href="@{./css/fonts.css}"></link>
+    <link rel="stylesheet" th:href="@{./css/form.css}"></link>
+    <link rel="stylesheet" th:href="@{./css/notification.css}"></link>
+
+    <link rel="stylesheet" th:href="@{./css/two_factor.css}"></link>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/notification.js"></script>
+    <script src="http://localhost:35729/livereload.js"></script></head>
+<body>
+    <div class="verification-title-panel">
+        <img src="/images/logo.svg" width="128px" height="128px" draggable="false"> <label class="verification-title">Forum — Email Verification</label>
+    </div>
+
+    <div class="notification-panel">
+    </div>
+
+    <div class="verification-panel">
+        <form th:action="@{/two_factor}" th:object="${two_factor_data}" method="post">
+            <div class="form-component">
+                <label for="code"><img src="/images/user.svg" width="30px" height="30px" draggable="false"> Code</label>
+                <input id="code" name="code" field="*code" required>
+            </div>
+
+            <div class="form-component">
+                <button type="submit">VERIFY</button>
+            </div>
+        </form>
+    </div>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+
+        var notificationStatus = /*[[${notification}]]*/ false
+        var type = /*[[${notificationType}]]*/ "INFO"
+        var notificationMessage = /*[[${notificationMessage}]]*/ ""
+
+        if(notificationStatus) {
+            notify(notificationMessage, notification_type[type]);
+        }
+
+        /*]]>*/
+    </script>
+</body>
+</html>

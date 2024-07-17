@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-width: 800px;
+    min-height: 100vh;
+
+    background-color: #1E2124;
+    user-select: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+    flex-flow: column;
+}
+
+.main-title {
+    font-family: "Panton BlackCaps";
+    font-size: 60px;
+    margin-bottom: 130px;
+    color: whitesmoke;
+}
+
+.form {
+    width: 1500px;
+    height: 690px;
+    background-color: #282B30;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+    flex-flow: column;
+}
+
+.topic-name-form,
+.topic-category-form,
+.topic-description-form {
+    display: flex;
+    flex-direction: column;
+    flex-flow: column;
+    width: 90%;
+    margin-bottom: 25px;
+}
+
+.topic-name,
+.topic-category-name,
+.topic-description-name {
+    font-family: "Panton BlackCaps";
+    font-size: 20px;
+    color: ghostwhite;
+    margin: 10px;
+}
+
+.topic-name-input,
+.topic-category-input,
+.topic-description-input {
+    font-family: "Poppins Medium";
+    font-size: 15px;
+    color: ghostwhite;
+    border: 1px solid rgba(128, 128, 128, 0.4);
+    border-radius: 7px;
+    background-color: #424549;
+    padding: 10px;
+}
+
+.topic-description-input {
+    min-width: 1330px;
+    max-width: 1330px;
+
+    max-height: 270px;
+    min-height: 270px;
+}
+
+.topic-name-form {
+    margin-top: 15px;
+}
+
+.submit-topic {
+    width: 210px;
+    height: 55px;
+
+    font-family: Panton BlackCaps;
+    font-size: 25px;
+
+    background-color: #424549;
+    border-radius: 10px;
+    border: 2px solid rgba(128, 128, 128, 0.3);
+    color: ghostwhite;
+}
+
+.submit-topic:hover {
+    background-color: #393b3f;
+    transition: 0.3s;
+}
+
+@media(max-width: 1579px) {
+
+    .main-title {
+        margin-top: 30px;
+    }
+
+    .form {
+        width: 80%;
+        height: 850px;
+    }
+
+    .topic-description-input {
+        min-width: 880px;
+        max-width: 880px;
+
+        max-height: 430px;
+        min-height: 430px;
+    }
+}
+
+@media(max-width: 1057px) {
+    .main-title {
+        margin-top: 40px;
+    }
+
+    .form {
+        width: 900px;
+        height: 950px;
+    }
+
+    .topic-description-input {
+        min-width: 790px;
+        max-width: 790px;
+
+        max-height: 530px;
+        min-height: 530px;
+    }
+}
+
+@media(max-width: 930px) {
+    .main-title {
+        margin-top: 40px;
+    }
+
+    .form {
+        width: 700px;
+        height: 950px;
+    }
+
+    .topic-description-input {
+        min-width: 610px;
+        max-width: 610px;
+
+        max-height: 530px;
+        min-height: 530px;
+    }
+}
+
+
+

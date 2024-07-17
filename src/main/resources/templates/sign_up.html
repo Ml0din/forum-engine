@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Forum | Register</title>
+
+    <link rel="stylesheet" th:href="@{./css/fonts.css}"></link>
+    <link rel="stylesheet" th:href="@{./css/form.css}"></link>
+    <link rel="stylesheet" th:href="@{./css/notification.css}"></link>
+
+    <link rel="stylesheet" th:href="@{./css/sign_up.css}"></link>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/notification.js"></script>
+    <script src="http://localhost:35729/livereload.js"></script>
+</head>
+<body>
+    <div class="sign-up-title-panel">
+        <img src="/images/logo.svg" width="128px" height="128px" draggable="false"> <label class="sign-up-title">Forum — Sign Up</label>
+    </div>
+
+    <div class="notification-panel">
+    </div>
+
+    <div class="sign-up-panel">`
+        <form th:action="@{/sign_up}" th:object="${signUpData}" method="post">
+            <div class="form-component">
+                <label for="username"><img src="/images/user.svg" width="30px" height="30px" draggable="false"> Username</label>
+                <input id="username" name="username" field="*username" required>
+            </div>
+
+            <div class="form-component">
+                <label for="email"><img src="/images/email.svg" width="30px" height="30px" draggable="false"> Email</label>
+                <input id="email" name="email" field="*email" required>
+            </div>
+
+            <div class="form-component">
+                <label for="password"><img src="/images/shield.svg" width="30px" height="30px" draggable="false"> Password</label>
+                <input type="password" id="password" name="password" field="*password" required>
+            </div>
+
+            <div class="form-component">
+                <button type="submit">SIGN UP</button>
+            </div>
+        </form>
+    </div>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+
+        var notificationStatus = /*[[${notification}]]*/ false
+        var notificationMessage = /*[[${notificationMessage}]]*/ ""
+
+        if(notificationStatus) {
+            notify(notificationMessage, notification_type.ERROR);
+        }
+
+        /*]]>*/
+    </script>
+</body>
+</html>

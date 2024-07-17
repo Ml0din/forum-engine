@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="_csrf" data-th-content="${_csrf.token}"/>
+  <meta name="_csrf_header" data-th-content="${_csrf.headerName}"/>
+
+  <title>Forum | Sign In</title>
+
+  <link rel="stylesheet" th:href="@{./css/fonts.css}"></link>
+  <link rel="stylesheet" th:href="@{./css/form.css}"></link>
+  <link rel="stylesheet" th:href="@{./css/notification.css}"></link>
+
+  <link rel="stylesheet" th:href="@{./css/sign_in.css}"></link>
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/notification.js"></script>
+  <script src="/js/goto.js"></script>
+  <script src="http://localhost:35729/livereload.js"></script>
+</head>
+<body>
+  <div class="sign-in-title-panel">
+    <img src="/images/logo.svg" width="128px" height="128px" draggable="false"> <label class="sign-in-title">Forum — Sign In</label>
+  </div>
+
+
+  <div class="notification-panel">
+  </div>
+
+  <div class="sign-in-panel">
+    <form th:action="@{/login}" method="post">
+      <div class="form-component">
+        <label for="username"><img src="/images/email.svg" width="30px" height="30px" draggable="false"> Email</label>
+        <input id="username" name="username" required>
+      </div>
+
+      <div class="form-component">
+        <label for="password"><img src="/images/shield.svg" width="30px" height="30px" draggable="false"> Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+
+      <div class="oauth2">
+        <span>or</span>
+        <button type="button" onclick="goto('/oauth2/authorization/google')"><img src="/images/google.svg" width="30px" height="30px" draggable="false"> Google</button>
+      </div>
+
+      <div class="form-component">
+        <button type="submit">SIGN IN</button>
+      </div>
+    </form>
+  </div>
+
+  <script th:inline="javascript">
+    /*<![CDATA[*/
+
+    var status = /*[[${param.error}]]*/ "false"
+    if(status === "true") {
+      notify('Bad credentials.', notification_type.ERROR);
+    }
+
+    /*]]>*/
+  </script>
+</body>
+</html>

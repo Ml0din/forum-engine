@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" th:href="@{../css/fonts.css}"></link>
+    <link rel="stylesheet" th:href="@{../css/form.css}"></link>
+    <link rel="stylesheet" th:href="@{../css/notification.css}"></link>
+
+    <link rel="stylesheet" th:href="@{../css/error.css}"></link>
+
+    <title>Forum | Error</title>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/notification.js"></script>
+    <script src="../js/goto.js"></script>
+    <script src="http://localhost:35729/livereload.js"></script></head>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <img src="../images/error.svg" width="128px" height="128px" draggable="false">
+        </div>
+
+        <div class="content">
+            <span th:text="${errorStatus != null} ? ${errorMessage} : 'No error found.'"></span>
+        </div>
+
+        <div>
+            <button class="submit" onclick="goto('/')">Back to Main Page</button>
+        </div>
+    </div>
+</body>
+</html>

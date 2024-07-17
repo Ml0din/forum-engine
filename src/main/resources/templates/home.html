@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="_csrf" data-th-content="${_csrf.token}"/>
+    <meta name="_csrf_header" data-th-content="${_csrf.headerName}"/>
+
+    <link rel="stylesheet" th:href="@{./css/fonts.css}"></link>
+    <link rel="stylesheet" th:href="@{./css/form.css}"></link>
+    <link rel="stylesheet" th:href="@{./css/notification.css}"></link>
+    <link rel="stylesheet" th:href="@{./css/home.css}"></link>
+
+    <title>Forum | Home</title>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/logout.js"></script>
+    <script src="/js/goto.js"></script>
+    <script src="/js/notification.js"></script>
+    <script src="/js/navbar.js"></script>
+    <script src = "/js/home.js"></script>
+    <script src="http://localhost:35729/livereload.js"></script>
+</head>
+<body>
+    <div class="notification-panel"></div>
+
+    <div class = "navbar">
+        <div class = "logo">
+            <span class = "nav-logo">FORUM ENGINE</span>
+        </div>
+
+        <div class = "centered-components">
+            <button class = "nav-button centered-buttons" onclick="window.location.href = '/admin'">Admin Panel</button>
+        </div>
+
+        <div class = "right-components">
+            <button class = "nav-auth" draggable = "false" onclick="logout()">SIGN OUT</button>
+            <button class = "nav-button toggle-button" id = "nav-toggle-button" onclick="animatedToggleNavMobile()">
+                <div class = "bar"></div>
+            </button>
+        </div>
+    </div>
+
+    <div class = "navbar-mobile-component">
+        <div class = "navbar-mobile">
+            <button class = "nav-button centered-buttons" onclick="window.location.href = '/admin'">Admin Panel</button>
+            <button class = "nav-button" draggable = "false" onclick="logout()">SIGN OUT</button>
+        </div>
+    </div>
+
+    <div class = "forum-presentation-background">
+        <div class = "forum-presentation">
+            <div class = "forum-presentation-content">
+                <span class = "primary-text">BINE AI VENIT PE FORUM ENGINE</span>
+                <span class = "secondary-text">ÎNAINTE DE A ÎNCEPE NAVIGAREA PE FORUM, TE RUGĂM SĂ CITEȘTI REGULAMENTUL</span>
+            </div>
+        </div>
+    </div>
+
+    <div class = "mini-header" style="margin-bottom: auto">
+        <div class = "left-components">
+            <span class = "user-location"><span class = "location-arrow">➾</span> ACASĂ</span>
+        </div>
+    </div>
+
+    <div class = "category-border">
+        <span class = "border"></span>
+        <span class = "category-border-title">SELECTEAZĂ O CATEGORIE</span>
+        <span class = "border"></span>
+    </div>
+
+
+    <div th:each="category: ${categories}" style="width: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column; margin-bottom: 100px">
+        <div class = "topic-category">
+            <div class = "left-components">
+                <span class = "main-category-name"><span class = "location-sign">★</span><span th:text="${category.getName()}"></span></span>
+            </div>
+
+            <div class = "right-components" style = "margin-right: 74px;">
+                <button class = "category-toggle-button" th:attr="onclick=|toggleCategory('${category.getId()}')|">
+                    <div class = "slash"></div>
+                </button>
+            </div>
+        </div>
+
+        <div th:each="subcategory: ${category.getSubcategoryEntities()}" th:attr="class=|main-category ${category.getId()}|" class = "main-category">
+            <div class = "left-category-components">
+                <div class = "image">
+                    <img src = "./images/door.svg" width="80" height="80" draggable="false">
+                </div>
+
+                <div class = "sub-category-info">
+                    <div class = "category-name">
+                        <a th:text="${subcategory.getName()}" th:attr="href=|/subcategory/${subcategory.getId()}|" style="text-decoration: none; color: whitesmoke"></a>
+                    </div>
+
+                    <div class = "description">
+                        <span th:text="${subcategory.getDescription()}"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="margin-top: auto;">
+        <div class = "footer">
+            <div class="row">
+                <ul>
+                    <li><a href="/admin">Admin Panel</a></li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <span>Copyright Mladin Alexandru-Mihai | Forum Engine | GitHub: Ml0din</span>
+            </div>
+        </div>
+    </footer>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+
+        var notificationStatus = /*[[${notification}]]*/ false
+        var notificationMessage = /*[[${notificationMessage}]]*/ ""
+
+        if(notificationStatus) {
+            notify(notificationMessage, notification_type.ERROR);
+        }
+
+        /*]]>*/
+    </script>
+
+</body>
+</html>
